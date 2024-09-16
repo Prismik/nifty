@@ -1,12 +1,16 @@
+ // swift-tools-version: 5.10
+
 import PackageDescription
 
 let package = Package(
     name: "Nifty",
-    dependencies: [
-        .Package(url: "https://github.com/nifty-swift/Nifty-libs.git", majorVersion: 1),
+    products: [
+        .library(name: "nifty", targets: ["nifty"])
     ],
-    exclude: [
-    	"Tests/KnownResults",
+    dependencies: [
+        .package(url: "git@github.com:Prismik/Nifty-libs.git", branch: "master"),
+    ],
+    targets: [
+        .target(name: "nifty")
     ]
-
 )
